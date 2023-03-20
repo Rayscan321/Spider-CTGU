@@ -1,5 +1,9 @@
 import requests
 class CTGU:
+    '''
+    param str Username 用户名
+    param str Passsord 密码
+    '''
     def __init__(self, Username, Password):
         self.Username = Username
         self.Password = Password
@@ -12,11 +16,6 @@ class CTGU:
         Core[]
     '''
     def GetRecentGrades(self):
-        '''
-        param str userName  用户名
-        param str passWord   密码
-        param int pageNum   成绩页页数
-        '''
         Subject = []
         Core = []
         login_pageUrl = 'http://jwxt.ctgu.edu.cn/jwapp/sys/yjsrzfwapp/dbLogin/index.do'
@@ -85,14 +84,6 @@ class CTGU:
         Core[]
     '''
     def GetAllGrades(self):
-        '''
-        param str SubjectName 科目名称
-        '''
-        '''
-        param str userName  用户名
-        param str passWord   密码
-        param int pageNum   成绩页页数
-        '''
         pageNum = 1
         i = 0
         Subject = []
