@@ -169,6 +169,4 @@ class CTGU:
         
 
 if __name__ == '__main__':
-    User = CTGU('2020148214','Leihanning123')
-    dict = User.SearchCore('电路原理(二)')
-    print(dict)
+    
