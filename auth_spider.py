@@ -105,9 +105,10 @@ class CTGU:
         Sends a post request to the website with the necessary login parameters.
         Returns nothing, but prints response headers.
         """
+        captcha = ""
         self.__get_encrypt_info()
-        if(self.__if_need_captcha() == 'false'):
-            self.__get_captcha()
+        if(self.__if_need_captcha() == 'true'):
+            captcha = self.__get_captcha()
         headers = {
         "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7",
         "Accept-Language": "zh-CN,zh;q=0.9,en;q=0.8,en-US;q=0.7,en-GB;q=0.6",
@@ -127,7 +128,7 @@ class CTGU:
         data = {
             "username": self.__username,
             "password": self.__get_encrypted_password(),
-            "captcha": "",
+            "captcha": captcha,
             "_eventId": "submit",
             "cllt": "userNameLogin",
             "dllt": "generalLogin",
@@ -286,7 +287,9 @@ class CTGU:
         return info
 
 if __name__ == "__main__":
-    user = CTGU('username', 'password')
+    username = input('请输入你的用户名：')
+    password = input('请输入你的密码：')
+    user = CTGU(username, password)
     print(user.get_grades())
     print(user.get_user_info())
     
